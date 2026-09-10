@@ -1,0 +1,37 @@
+# Program to add two matrices
+
+# Create first matrix
+A = [
+    [1, 2],
+    [3, 4]
+]
+
+# Create second matrix
+B = [
+    [5, 6],
+    [7, 8]
+]
+
+# Create an empty matrix for the result
+C = [
+    [0, 0],
+    [0, 0]
+]
+
+# Matrix addition
+for i in range(2):
+    for j in range(2):
+        C[i][j] = A[i][j] + B[i][j]
+
+# Display matrices
+print("First Matrix:")
+for row in A:
+    print(row)
+
+print("Second Matrix:")
+for row in B:
+    print(row)
+
+print("Addition of two matrices:")
+for row in C:
+    print(row)
