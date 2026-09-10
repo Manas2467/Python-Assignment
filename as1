@@ -1,0 +1,105 @@
+# Student information using Dictionary, Tuple and List
+
+students = {}
+
+# 1. Add student record
+def add_student():
+    roll_no = int(input("Enter Roll No: "))
+    name = input("Enter Name: ")
+    branch = input("Enter Branch: ")
+    
+    marks = []
+    n = int(input("Enter number of subjects: "))
+    
+    for i in range(n):
+        mark = float(input(f"Enter marks for subject {i + 1}: "))
+        marks.append(mark)
+
+    # Tuple containing student details
+    student_details = (name, branch, marks)
+
+    # Store tuple in dictionary using roll number as key
+    students[roll_no] = student_details
+    print("Student record added successfully!\n")
+
+
+# 2. Delete existing student record
+def delete_student():
+    roll_no = int(input("Enter Roll No to delete: "))
+
+    if roll_no in students:
+        del students[roll_no]
+        print("Student record deleted successfully!\n")
+    else:
+        print("Student record not found!\n")
+
+
+# 3. Update details of a student
+def update_student():
+    roll_no = int(input("Enter Roll No to update: "))
+
+    if roll_no in students:
+        name = input("Enter new Name: ")
+        branch = input("Enter new Branch: ")
+
+        marks = []
+        n = int(input("Enter number of subjects: "))
+
+        for i in range(n):
+            mark = float(input(f"Enter marks for subject {i + 1}: "))
+            marks.append(mark)
+
+        # Update tuple in dictionary
+        students[roll_no] = (name, branch, marks)
+
+        print("Student record updated successfully!\n")
+    else:
+        print("Student record not found!\n")
+
+
+# 4. Display final student records
+def display_students():
+    if not students:
+        print("No student records available.")
+    else:
+        print("\n----- FINAL STUDENT RECORDS -----")
+
+        for roll_no, details in students.items():
+            name, branch, marks = details
+
+            print("Roll No :", roll_no)
+            print("Name    :", name)
+            print("Branch  :", branch)
+            print("Marks   :", marks)
+            print("-----------------------------")
+
+
+# Main program
+while True:
+    print("\n===== STUDENT RECORD SYSTEM =====")
+    print("1. Add Student Record")
+    print("2. Delete Student Record")
+    print("3. Update Student Details")
+    print("4. Display Final Student Records")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        add_student()
+
+    elif choice == 2:
+        delete_student()
+
+    elif choice == 3:
+        update_student()
+
+    elif choice == 4:
+        display_students()
+
+    elif choice == 5:
+        print("Program ended.")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
